@@ -22,5 +22,10 @@ namespace Assignment3
         {
             return "Hello World";
         }
+        [WebMethod]
+        public int Add(int x, int y)
+        {
+            return x + y;
+        }
     }
 }
