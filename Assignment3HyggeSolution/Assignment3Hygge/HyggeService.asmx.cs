@@ -24,6 +24,17 @@ namespace Assignment3Hygge
         {
             return "Hello World";
         }
+        [WebMethod]
+        public string Meny()
+        {
+            return "---------Meny-------" + '\n' + "-----Please enter a One of Following ------"
+                + '\n' + "Person, Industry, Credentials, Intrest, Education or Relationship";
+
+
+
+
+        }
+    
 
     }
 }

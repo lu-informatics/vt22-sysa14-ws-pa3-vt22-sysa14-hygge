@@ -6,6 +6,7 @@ public class Test {
 	{
 		HyggeService proxy = new HyggeService();
 		Console.WriteLine(proxy.HelloWorld());
+		Console.WriteLine(proxy.Meny());
 	}
 
 }

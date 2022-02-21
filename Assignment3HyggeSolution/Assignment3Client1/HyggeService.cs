@@ -29,6 +29,8 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     
     private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
     
+    private System.Threading.SendOrPostCallback MenyOperationCompleted;
+    
     /// <remarks/>
     public HyggeService() {
         this.Url = "http://localhost/Assignment3Client/HyggeService.asmx";
@@ -36,6 +38,9 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     
     /// <remarks/>
     public event HelloWorldCompletedEventHandler HelloWorldCompleted;
+    
+    /// <remarks/>
+    public event MenyCompletedEventHandler MenyCompleted;
     
     /// <remarks/>
     [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -76,6 +81,44 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     }
     
     /// <remarks/>
+    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Meny", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+    public string Meny() {
+        object[] results = this.Invoke("Meny", new object[0]);
+        return ((string)(results[0]));
+    }
+    
+    /// <remarks/>
+    public System.IAsyncResult BeginMeny(System.AsyncCallback callback, object asyncState) {
+        return this.BeginInvoke("Meny", new object[0], callback, asyncState);
+    }
+    
+    /// <remarks/>
+    public string EndMeny(System.IAsyncResult asyncResult) {
+        object[] results = this.EndInvoke(asyncResult);
+        return ((string)(results[0]));
+    }
+    
+    /// <remarks/>
+    public void MenyAsync() {
+        this.MenyAsync(null);
+    }
+    
+    /// <remarks/>
+    public void MenyAsync(object userState) {
+        if ((this.MenyOperationCompleted == null)) {
+            this.MenyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnMenyOperationCompleted);
+        }
+        this.InvokeAsync("Meny", new object[0], this.MenyOperationCompleted, userState);
+    }
+    
+    private void OnMenyOperationCompleted(object arg) {
+        if ((this.MenyCompleted != null)) {
+            System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+            this.MenyCompleted(this, new MenyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+        }
+    }
+    
+    /// <remarks/>
     public new void CancelAsync(object userState) {
         base.CancelAsync(userState);
     }
@@ -94,6 +137,32 @@ public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncC
     private object[] results;
     
     internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState) {
+        this.results = results;
+    }
+    
+    /// <remarks/>
+    public string Result {
+        get {
+            this.RaiseExceptionIfNecessary();
+            return ((string)(this.results[0]));
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
+public delegate void MenyCompletedEventHandler(object sender, MenyCompletedEventArgs e);
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+public partial class MenyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    
+    private object[] results;
+    
+    internal MenyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState) {
         this.results = results;
     }

@@ -10,7 +10,7 @@ namespace Assignment3Hygge
     public class DAL
     {
 
-        public DataSet RetDataset()
+        public DataSet ReadData()
         {
             SqlConnection cnn = new SqlConnection("Data Source = SYST4DEV01; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ");
             cnn.Open();
@@ -27,11 +27,7 @@ namespace Assignment3Hygge
             Console.WriteLine(ds);
             cnn.Close();
 
-            /*string query2 = "Select * from Relationship";
-            string query3 = "Select * from Intrest";
-            string query4 = "Select * from Credentials";
-            string query5 = "Select * from Industry";
-            string query6 = "Select * from Education";*/
+
 
 
         }
