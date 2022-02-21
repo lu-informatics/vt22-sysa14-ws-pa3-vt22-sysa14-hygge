@@ -9,28 +9,83 @@ namespace Assignment3Hygge
 {
     public class DAL
     {
-
-        public DataSet ReadData()
+        string command;
+        public static DataTable ShowData(string query)
         {
-            SqlConnection cnn = new SqlConnection("Data Source = SYST4DEV01; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ");
-            cnn.Open();
-            Console.WriteLine("Connection to database is successful");
-            Console.WriteLine("Please enter:  Person, Relationship, Credentials, Intrest, Industry or Education to get information form the database");
+            string connectionString = "Data Source = SYST4DEV01; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
 
-            string query1 = "Select * from Person";
+                using (SqlCommand command = new SqlCommand(query, connection)) ; // ; ska ej vara där
+                {
+                    using (SqlDataReader sdr = command.ExecuteReader())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(sdr);
 
-
-            SqlDataAdapter adapter = new SqlDataAdapter(query1, cnn);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds, "Person");
-            return (ds);
-            Console.WriteLine(ds);
-            cnn.Close();
-
-
-
-
+                        return dataTable;
+                        
+                        
+                    }
+                }
+            }
         }
     }
 }
-    
+
+
+
+
+
+        /*string response = "";
+        while (response != "Exit")
+
+
+
+        response = Console.ReadLine();
+        switch (response.ToLower())
+        {
+        case "pers":
+              getPersons();
+              break;
+        case "cred":
+              getCredentials();
+            break;
+        case "rela":
+              getRelationships();
+              break;
+        case "int":
+              getIntrests();
+        case "edu":
+              break;
+              getEducations();
+        case "ind":
+              break;
+
+    static void getPersons()
+    {
+        
+    }
+
+
+
+
+
+
+        public DataSet ReadData(string query)
+        {
+            string connctionString = "Data Source = SYST4DEV01; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ";
+            using (SqlConnection conn = new SqlConnection(connctionString))
+
+                conn.Open();
+
+            using (SqlConnection conn = new SqlConnection(query, conn)) ;
+
+
+            switch*/
+
+
+
+
+
