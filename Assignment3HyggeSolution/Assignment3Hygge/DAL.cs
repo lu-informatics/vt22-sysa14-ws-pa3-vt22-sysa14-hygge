@@ -19,7 +19,7 @@ namespace Assignment3Hygge
 
                 using (SqlCommand command = new SqlCommand(query, connection)) ; // ; ska ej vara där
                 {
-                    using (SqlDataReader sdr = command.ExecuteReader())
+                    using (SqlDataReader sdr = command.ExecuteReader()) 
                     {
                         DataTable dataTable = new DataTable();
                         dataTable.Load(sdr);
