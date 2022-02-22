@@ -31,6 +31,14 @@ namespace Assignment3Hygge
                 }
             }
         }
+
+        public static SelectAllHyggeAdapters(string connection)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.ConnectionString = connection;
+            SqlCommand command = new SqlCommand("SELECT * FROM Person", connection);
+
+        }
     }
 }
 
@@ -38,7 +46,7 @@ namespace Assignment3Hygge
 
 
 
-        /*string response = "";
+        string response = "";
         while (response != "Exit")
 
 
@@ -47,26 +55,23 @@ namespace Assignment3Hygge
         switch (response.ToLower())
         {
         case "pers":
-              getPersons();
+              
               break;
         case "cred":
-              getCredentials();
+              
             break;
         case "rela":
-              getRelationships();
+              
               break;
         case "int":
-              getIntrests();
+              
         case "edu":
               break;
-              getEducations();
+              
         case "ind":
               break;
 
-    static void getPersons()
-    {
-        
-    }
+   
 
 
 
