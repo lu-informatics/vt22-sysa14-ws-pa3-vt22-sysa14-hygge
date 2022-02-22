@@ -3,9 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3Client", "Assignment3Hygge\Assignment3Client.csproj", "{301B147B-2BDA-4BAD-A732-730141F51D82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3", "Assignment3Hygge\Assignment3.csproj", "{301B147B-2BDA-4BAD-A732-730141F51D82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3Client2", "Assignment3Client2\Assignment3Client2.csproj", "{02014BA7-B065-4A4D-B232-58E636750357}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Test", "Assignment3Client1\Test.exe", "{4329ABD5-957F-4447-BC06-0EDCA04ED986}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Users\ma7762la-s\source\repos\HyggeFinal\vt22-sysa14-ws-pa3-vt22-sysa14-hygge\Assignment3HyggeSolution\Assignment3Client1\Test.exe
+		RemoteMachine = SYSA12
+		StartingDirectory = C:\Users\ma7762la-s\source\repos\HyggeFinal\vt22-sysa14-ws-pa3-vt22-sysa14-hygge\Assignment3HyggeSolution\Assignment3Client1
+		Environment = Default
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+		IORedirection = Auto
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +35,8 @@ Global
 		{02014BA7-B065-4A4D-B232-58E636750357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02014BA7-B065-4A4D-B232-58E636750357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02014BA7-B065-4A4D-B232-58E636750357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4329ABD5-957F-4447-BC06-0EDCA04ED986}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{4329ABD5-957F-4447-BC06-0EDCA04ED986}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

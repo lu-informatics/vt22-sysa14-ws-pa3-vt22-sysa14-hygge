@@ -4,7 +4,9 @@ using System.Data;
 using System.Collections.Generic;
 
 
-namespace HyggeFinal {
+
+namespace Assignment3Hygge { 
+
     public class DataAccessLayer { //TODO error handling
         public static string Test() { //this method should only be used to test out new features of the db. it does not test the functionality of the whole class.   
             try {
@@ -22,14 +24,52 @@ namespace HyggeFinal {
             Education 
         }
 
-        private static class Utils {
+        public static class Utils {
             // These methods partially define the SQL query, leaving parameter fill for the SendToDatabes method.
             // IMPORTANT: These methods requires ParamIDs to match parameter names in the database.
 
             public static DataSet ViewAll(Table table) => SendToDatabase($"SELECT * FROM {table}");
 
-            //CREATE TEMPLATE
-            public static void Create(Table table, ParamArgs value1, ParamArgs value2) 
+            public static void GetYourTables()
+            {
+                string response = "";
+                while (response != "Exit")
+                {
+                    response = Console.ReadLine();
+                    switch (response.ToLower())
+                    {
+                        case "log":
+                            ViewAll(Table.Logins);
+                            break;
+
+                        case "pers":
+                            ViewAll(Table.Person);
+                            break;
+
+                        case "rela":
+                            ViewAll(Table.Relationship);
+                            break;
+
+                        case "int":
+                            ViewAll(Table.Interest);
+                            break;
+
+                        case "ind":
+                            ViewAll(Table.Industry);
+                            break;
+
+                        case "edu":
+                            ViewAll(Table.Education);
+                            break;
+
+                    }
+
+
+                }
+            }
+
+                //CREATE TEMPLATE
+                public static void Create(Table table, ParamArgs value1, ParamArgs value2) 
                 => SendToDatabase($"INSERT INTO {table}({value1.ParamID.Substring(1)},{value2.ParamID.Substring(1)}) VALUES ({value1.ParamID},{value2.ParamID})",value1,value2);
             //UPDATE TEMPLATE
             public static void Update(Table table, ParamArgs primaryKey, ParamArgs changedValue) 

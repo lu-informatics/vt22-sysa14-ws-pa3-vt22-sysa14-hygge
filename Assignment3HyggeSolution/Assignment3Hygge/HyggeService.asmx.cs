@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
+
 namespace Assignment3Hygge
 {
     /// <summary>
@@ -28,17 +29,51 @@ namespace Assignment3Hygge
         public string Meny()
         {
             return "---------Meny-------" + '\n' + "-----Please enter a One of Following ------"
-                + '\n' + "Person, Industry, Credentials, Intrest, Education or Relationship";
-
-
-
+                + '\n' + "Person, Industry, Login, Intrest, Education or Relationship";
 
         }
 
-    
+        [WebMethod]
+        public void GetYourTables(string response)
+        {
+            response = "";
+            while (response != "Exit")
+            {
+                response = Console.ReadLine();
+                switch (response.ToLower())
+                {
+                    case "log":
+                        DataAccessLayer.Utils.ViewAll(DataAccessLayer.Table.Logins);
+                        break;
 
+                    case "pers":
+                        DataAccessLayer.Utils.ViewAll(DataAccessLayer.Table.Person);
+                        break;
+
+                    case "rela":
+                        DataAccessLayer.Utils.ViewAll(DataAccessLayer.Table.Relationship);
+                        break;
+
+
+                    case "int":
+                        DataAccessLayer.Utils.ViewAll(DataAccessLayer.Table.Interest);
+                        break;
+
+                    case "ind":
+                        DataAccessLayer.Utils.ViewAll(DataAccessLayer.Table.Industry);
+                        break;
+
+                    case "edu":
+                        DataAccessLayer.Utils.ViewAll(DataAccessLayer.Table.Education);
+                        break;
+                }
+            }
+
+        }
     }
 }
+
+
 
     
 

@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HyggeFinal
+
+namespace Assignment3Hygge 
+
 {
     public class ParamArgs
     {
