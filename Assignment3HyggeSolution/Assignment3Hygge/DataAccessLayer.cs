@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
 
+
 namespace HyggeFinal {
     public class DataAccessLayer { //TODO error handling
         public static string Test() { //this method should only be used to test out new features of the db. it does not test the functionality of the whole class.   
