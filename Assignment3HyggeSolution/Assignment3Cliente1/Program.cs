@@ -13,7 +13,7 @@ namespace Assignment3Cliente1
         {
             
             {
-                HyggeService client = new HyggeService();
+                HyggeService hyggeClient = new HyggeService();
 
 
 
@@ -52,6 +52,7 @@ namespace Assignment3Cliente1
                             break;
 
                     }
+                var response = hyggeClient.ViewAll(table);
             }
            
             }
