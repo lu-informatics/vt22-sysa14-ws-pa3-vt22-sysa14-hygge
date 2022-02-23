@@ -6,8 +6,8 @@ public class Test {
 	
 	public static void Main(string[] args)
 	{
-		HyggeService.HyggeServiceSoapClient.EndpointConfiguration config = HyggeServiceSoapClient.EndpointConfiguration.HyggeServiceSoap;
-		HyggeServiceSoapClient proxy = new HyggeServiceSoapClient(config);
+		private static HyggeService.HyggeServiceSoapClient.EndpointConfiguration config = HyggeServiceSoapClient.EndpointConfiguration.HyggeServiceSoap;
+		private HyggeServiceSoapClient proxy = new HyggeServiceSoapClient(config);
 		Console.WriteLine(proxy.Meny());
 		Console.WriteLine(proxy.HelloWorld());
 

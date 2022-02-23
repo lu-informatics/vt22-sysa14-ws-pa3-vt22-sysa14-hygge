@@ -4,12 +4,12 @@ using System.Data;
 using System.Collections.Generic;
 
 
-<<<<<<< HEAD
-namespace HyggeFinal {
-=======
-namespace Assignment3Hygge { 
->>>>>>> dev_majsan
+
+namespace Client22
+{ 
+
     public class DataAccessLayer { //TODO error handling
+        
         public static string Test() { //this method should only be used to test out new features of the db. it does not test the functionality of the whole class.   
             try {
                 DataSet ds = Login.ReadLogin("anabanana@hotmail.com");
