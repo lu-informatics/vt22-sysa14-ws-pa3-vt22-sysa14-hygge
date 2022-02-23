@@ -21,34 +21,40 @@ namespace Assignment3Cliente1
                     + '\n' + "Person, Industry, Login, Intrest, Education or Relationship");
 
                 string response = Console.ReadLine();
-                DataSet ds = new DataSet();
-
+                //DataSet ds = new DataSet(); //Ta bort!
+                
                 while (response != "Exit")
 
                     switch (response.ToLower())
                     {
                         case "log":
-                            ds = DataAccessLayer.Utils.ViewAll(Table.Logins);
+                            //ds = DataAccessLayer.Utils.ViewAll(Table.Logins);
+                            ds = hyggeClient.ViewAll(Table.Logins);
                             break;
 
                         case "pers":
-                            ds = DataAccessLayer.Utils.ViewAll(Table.Person);
+                            ds = hyggeClient.ViewAll(Table.Person);
+                            //ds = DataAccessLayer.Utils.ViewAll(Table.Person);
                             break;
 
                         case "rela":
-                            ds = DataAccessLayer.Utils.ViewAll(Table.Relationship);
+                            ds = hyggeClient.ViewAll(Table.Relationship);
+                            //ds = DataAccessLayer.Utils.ViewAll(Table.Relationship);
                             break;
 
                         case "int":
-                            ds = DataAccessLayer.Utils.ViewAll(Table.Interest);
+                            ds = hyggeClient.ViewAll(Table.Interest);
+                            //ds = DataAccessLayer.Utils.ViewAll(Table.Interest);
                             break;
 
                         case "ind":
-                            ds = DataAccessLayer.Utils.ViewAll(Table.Industry);
+                            ds = hyggeClient.ViewAll(Table.Industry);
+                            //ds = DataAccessLayer.Utils.ViewAll(Table.Industry);
                             break;
 
                         case "edu":
-                            ds = DataAccessLayer.Utils.ViewAll(Table.Education);
+                            ds = hyggeClient.ViewAll(Table.Education);
+                            //ds = DataAccessLayer.Utils.ViewAll(Table.Education);
                             break;
 
                     }
