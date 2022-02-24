@@ -27,32 +27,25 @@ namespace Assignment3Hygge
             return "Hello World";
         }
         [WebMethod]
-        public DataSet ViewAll(Table table) //Vi har ändrat!
-            //Vårt dataSet är populerat med ett dataTable som ligger på index 0.
+        public DataSet ViewAll(Table table) 
         {
-            //DETTA KAN VI TA BORT!
-            //DataSet dataSet = DataAccessLayer.Utils.ViewAll(table);
-            //DataTable table1 = dataSet.Tables[0];
-            //dataSet.Tables.Add(table1);
-
-            //return dataSet;
             return DataAccessLayer.Utils.ViewAll(table);
 
+        //}
+        //[WebMethod]
+        //public void GetYourTables()
+        //{
+         
+        //   try
+        // {
+        //        return DataAccessLayer.Utils.GetYourTables();
 
-        }
-        [WebMethod]
-        public void GetYourTables()
-        {
-            try
-            {
-                return dal.GetYourTables();
+        //  }
+        //   catch (Exception)
+        //}
+        //   Console.WriteLine("Connection faild to get data form GetYourTables()");
 
-            }
-            catch (Exception)
-        }
-            Console.WriteLine("Connection faild to get data form GetYourTables()");
-
-            return null;
+        //   return null;
 
 
 
