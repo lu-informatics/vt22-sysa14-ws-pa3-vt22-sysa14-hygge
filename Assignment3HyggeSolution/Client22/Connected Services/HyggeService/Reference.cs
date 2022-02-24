@@ -16,163 +16,44 @@ namespace HyggeService
     public interface HyggeServiceSoap
     {
         
-        // CODEGEN: Generating message contract since element name HelloWorldResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        HyggeService.HelloWorldResponse HelloWorld(HyggeService.HelloWorldRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string HelloWorld();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<HyggeService.HelloWorldResponse> HelloWorldAsync(HyggeService.HelloWorldRequest request);
+        System.Threading.Tasks.Task<string> HelloWorldAsync();
         
-        // CODEGEN: Generating message contract since element name MenyResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Meny", ReplyAction="*")]
-        HyggeService.MenyResponse Meny(HyggeService.MenyRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ViewAll", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        HyggeService.ArrayOfXElement ViewAll(HyggeService.Table table);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Meny", ReplyAction="*")]
-        System.Threading.Tasks.Task<HyggeService.MenyResponse> MenyAsync(HyggeService.MenyRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ViewAll", ReplyAction="*")]
+        System.Threading.Tasks.Task<HyggeService.ArrayOfXElement> ViewAllAsync(HyggeService.Table table);
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public enum Table
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public HyggeService.HelloWorldRequestBody Body;
+        /// <remarks/>
+        Logins,
         
-        public HelloWorldRequest()
-        {
-        }
+        /// <remarks/>
+        Person,
         
-        public HelloWorldRequest(HyggeService.HelloWorldRequestBody Body)
-        {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class HelloWorldRequestBody
-    {
+        /// <remarks/>
+        Relationship,
         
-        public HelloWorldRequestBody()
-        {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse
-    {
+        /// <remarks/>
+        Interest,
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public HyggeService.HelloWorldResponseBody Body;
+        /// <remarks/>
+        Industry,
         
-        public HelloWorldResponse()
-        {
-        }
-        
-        public HelloWorldResponse(HyggeService.HelloWorldResponseBody Body)
-        {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class HelloWorldResponseBody
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
-        
-        public HelloWorldResponseBody()
-        {
-        }
-        
-        public HelloWorldResponseBody(string HelloWorldResult)
-        {
-            this.HelloWorldResult = HelloWorldResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class MenyRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Meny", Namespace="http://tempuri.org/", Order=0)]
-        public HyggeService.MenyRequestBody Body;
-        
-        public MenyRequest()
-        {
-        }
-        
-        public MenyRequest(HyggeService.MenyRequestBody Body)
-        {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class MenyRequestBody
-    {
-        
-        public MenyRequestBody()
-        {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class MenyResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="MenyResponse", Namespace="http://tempuri.org/", Order=0)]
-        public HyggeService.MenyResponseBody Body;
-        
-        public MenyResponse()
-        {
-        }
-        
-        public MenyResponse(HyggeService.MenyResponseBody Body)
-        {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class MenyResponseBody
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string MenyResult;
-        
-        public MenyResponseBody()
-        {
-        }
-        
-        public MenyResponseBody(string MenyResult)
-        {
-            this.MenyResult = MenyResult;
-        }
+        /// <remarks/>
+        Education,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
@@ -218,58 +99,24 @@ namespace HyggeService
         {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        HyggeService.HelloWorldResponse HyggeService.HyggeServiceSoap.HelloWorld(HyggeService.HelloWorldRequest request)
-        {
-            return base.Channel.HelloWorld(request);
-        }
-        
         public string HelloWorld()
         {
-            HyggeService.HelloWorldRequest inValue = new HyggeService.HelloWorldRequest();
-            inValue.Body = new HyggeService.HelloWorldRequestBody();
-            HyggeService.HelloWorldResponse retVal = ((HyggeService.HyggeServiceSoap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
+            return base.Channel.HelloWorld();
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<HyggeService.HelloWorldResponse> HyggeService.HyggeServiceSoap.HelloWorldAsync(HyggeService.HelloWorldRequest request)
+        public System.Threading.Tasks.Task<string> HelloWorldAsync()
         {
-            return base.Channel.HelloWorldAsync(request);
+            return base.Channel.HelloWorldAsync();
         }
         
-        public System.Threading.Tasks.Task<HyggeService.HelloWorldResponse> HelloWorldAsync()
+        public HyggeService.ArrayOfXElement ViewAll(HyggeService.Table table)
         {
-            HyggeService.HelloWorldRequest inValue = new HyggeService.HelloWorldRequest();
-            inValue.Body = new HyggeService.HelloWorldRequestBody();
-            return ((HyggeService.HyggeServiceSoap)(this)).HelloWorldAsync(inValue);
+            return base.Channel.ViewAll(table);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        HyggeService.MenyResponse HyggeService.HyggeServiceSoap.Meny(HyggeService.MenyRequest request)
+        public System.Threading.Tasks.Task<HyggeService.ArrayOfXElement> ViewAllAsync(HyggeService.Table table)
         {
-            return base.Channel.Meny(request);
-        }
-        
-        public string Meny()
-        {
-            HyggeService.MenyRequest inValue = new HyggeService.MenyRequest();
-            inValue.Body = new HyggeService.MenyRequestBody();
-            HyggeService.MenyResponse retVal = ((HyggeService.HyggeServiceSoap)(this)).Meny(inValue);
-            return retVal.Body.MenyResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<HyggeService.MenyResponse> HyggeService.HyggeServiceSoap.MenyAsync(HyggeService.MenyRequest request)
-        {
-            return base.Channel.MenyAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<HyggeService.MenyResponse> MenyAsync()
-        {
-            HyggeService.MenyRequest inValue = new HyggeService.MenyRequest();
-            inValue.Body = new HyggeService.MenyRequestBody();
-            return ((HyggeService.HyggeServiceSoap)(this)).MenyAsync(inValue);
+            return base.Channel.ViewAllAsync(table);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
@@ -328,6 +175,61 @@ namespace HyggeService
             HyggeServiceSoap,
             
             HyggeServiceSoap12,
+        }
+    }
+    
+    [System.Xml.Serialization.XmlSchemaProviderAttribute(null, IsAny=true)]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil-lib", "2.0.3.0")]
+    public partial class ArrayOfXElement : object, System.Xml.Serialization.IXmlSerializable
+    {
+        
+        private System.Collections.Generic.List<System.Xml.Linq.XElement> nodesList = new System.Collections.Generic.List<System.Xml.Linq.XElement>();
+        
+        public ArrayOfXElement()
+        {
+        }
+        
+        public virtual System.Collections.Generic.List<System.Xml.Linq.XElement> Nodes
+        {
+            get
+            {
+                return this.nodesList;
+            }
+        }
+        
+        public virtual System.Xml.Schema.XmlSchema GetSchema()
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        public virtual void WriteXml(System.Xml.XmlWriter writer)
+        {
+            System.Collections.Generic.IEnumerator<System.Xml.Linq.XElement> e = nodesList.GetEnumerator();
+            for (
+            ; e.MoveNext(); 
+            )
+            {
+                ((System.Xml.Serialization.IXmlSerializable)(e.Current)).WriteXml(writer);
+            }
+        }
+        
+        public virtual void ReadXml(System.Xml.XmlReader reader)
+        {
+            for (
+            ; (reader.NodeType != System.Xml.XmlNodeType.EndElement); 
+            )
+            {
+                if ((reader.NodeType == System.Xml.XmlNodeType.Element))
+                {
+                    System.Xml.Linq.XElement elem = new System.Xml.Linq.XElement("default");
+                    ((System.Xml.Serialization.IXmlSerializable)(elem)).ReadXml(reader);
+                    Nodes.Add(elem);
+                }
+                else
+                {
+                    reader.Skip();
+                }
+            }
         }
     }
 }

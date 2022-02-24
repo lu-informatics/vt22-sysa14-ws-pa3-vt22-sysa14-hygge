@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost/Assignment3Client/HyggeService.asmx"
+      "http://localhost/Assignment3Client/HyggeService.asmx?WSDL"
     ],
     "collectionTypes": [
       "System.Array",

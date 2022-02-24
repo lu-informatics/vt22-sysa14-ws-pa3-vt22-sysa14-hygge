@@ -44,42 +44,46 @@ namespace Client22
 
         private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cb = sender as ComboBox;
-            DataSet ds = new DataSet();
+
+            
+                ComboBox cb = sender as ComboBox;
+                DataSet ds = new DataSet();
 
 
 
-            switch (cb.Text)
-            {
-                case "Logins":
-                    ds = DataAccessLayer.Utils.ViewAll(Table.Logins);
+                switch (cb.Text)
+                {
+                    case "Logins":
+                    ds = proxy.ViewAll(Table.Logins);
+                        break;
+
+                    case "Person":
+                    ds = proxy.ViewAll(Table.Person);
                     break;
 
-                case "Person":
-                    ds = DataAccessLayer.Utils.ViewAll(Table.Person);
+                   case "Relationship":
+                    ds = proxy.ViewAll(Table.Relationship);
                     break;
 
-                case "Relationship":
-                   ds = DataAccessLayer.Utils.ViewAll(Table.Relationship);
+                    case "Intrest":
+                      ds = proxy.ViewAll(Table.Interest);
                     break;
 
-                case "Intrest":
-                   ds = DataAccessLayer.Utils.ViewAll(Table.Interest);
-                    break;
+                    case "Industry":
+                        ds = proxy.ViewAll(Table.Industry); 
+                           break;
 
-                case "Industry":
-                    ds = DataAccessLayer.Utils.ViewAll(Table.Industry);
-                    break;
+                     case "Education":
+                         ds = proxy.ViewAll(Table.Logins);
+                            break;
 
-                case "Education":
-                    ds = DataAccessLayer.Utils.ViewAll(Table.Education);
-                    break;
+                        }
 
+                        dataGridViewData.DataSource = ds.Tables[0];
+                    }
             }
-
-            dataGridViewData.DataSource = ds.Tables[0];
         }
-    } } 
+
 
 
 
