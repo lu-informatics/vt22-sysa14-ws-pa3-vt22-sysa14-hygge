@@ -8,12 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Client22.DataAccessLayer;
 using static HyggeService.HyggeServiceSoapClient;
 using System.Configuration;
 using System.Data.SqlClient;
-
-
+ //Kanske ta bort
 
 namespace Client22
 {
@@ -42,45 +40,45 @@ namespace Client22
 
         }
 
-        private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
             
-                ComboBox cb = sender as ComboBox;
-                DataSet ds = new DataSet();
+        //        ComboBox cb = sender as ComboBox;
+        //        DataSet ds = new DataSet();
 
 
 
-                switch (cb.Text)
-                {
-                    case "Logins":
-                    ds = proxy.ViewAll(Table.Logins);
-                        break;
+        //        switch (cb.Text)
+        //        {
+        //            case "Logins":
+        //            ds = proxy.ViewAll(Table.Logins);
+        //                break;
 
-                    case "Person":
-                    ds = proxy.ViewAll(Table.Person);
-                    break;
+        //            case "Person":
+        //            ds = proxy.ViewAll(Table.Person);
+        //            break;
 
-                   case "Relationship":
-                    ds = proxy.ViewAll(Table.Relationship);
-                    break;
+        //           case "Relationship":
+        //            ds = proxy.ViewAll(Table.Relationship);
+        //            break;
 
-                    case "Intrest":
-                      ds = proxy.ViewAll(Table.Interest);
-                    break;
+        //            case "Intrest":
+        //              ds = proxy.ViewAll(Table.Interest);
+        //            break;
 
-                    case "Industry":
-                        ds = proxy.ViewAll(Table.Industry); 
-                           break;
+        //            case "Industry":
+        //                ds = proxy.ViewAll(Table.Industry); 
+        //                   break;
 
-                     case "Education":
-                         ds = proxy.ViewAll(Table.Logins);
-                            break;
+        //             case "Education":
+        //                 ds = proxy.ViewAll(Table.Logins);
+        //                    break;
 
-                        }
+        //                }
 
-                        dataGridViewData.DataSource = ds.Tables[0];
-                    }
+        //                dataGridViewData.DataSource = ds.Tables[0];
+        //            }
             }
         }
 
