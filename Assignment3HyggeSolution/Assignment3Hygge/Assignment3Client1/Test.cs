@@ -1,4 +1,6 @@
 using System;
+using Assignment3Hygge;
+
 
 namespace Assignment3Hygge {
 
