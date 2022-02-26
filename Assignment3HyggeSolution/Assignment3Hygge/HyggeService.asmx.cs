@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Services;
 using static Assignment3Hygge.DataAccessLayer;
@@ -20,6 +21,7 @@ namespace Assignment3Hygge
     public class HyggeService : System.Web.Services.WebService
     {
         private DataAccessLayer dal = new DataAccessLayer();
+        private List<Table> tables = new List<Table>();
 
         [WebMethod]
         public string HelloWorld()
@@ -27,37 +29,27 @@ namespace Assignment3Hygge
             return "Hello World";
         }
         [WebMethod]
-        public DataSet ViewAll(Table table) 
+        public DataSet ViewAll(Table table)
         {
             return DataAccessLayer.Utils.ViewAll(table);
 
-        //}
-        //[WebMethod]
-        //public void GetYourTables()
-        //{
-         
-        //   try
-        // {
-        //        return DataAccessLayer.Utils.GetYourTables();
-
-        //  }
-        //   catch (Exception)
-        //}
-        //   Console.WriteLine("Connection faild to get data form GetYourTables()");
-
-        //   return null;
+        }
+       
+            
 
 
 
         }
+      
+        
 
     }
-}
-    
 
 
 
 
-    
 
-  
+
+
+
+
