@@ -14,9 +14,9 @@ public class Client3 {
 		
 		
 		
-		/*	HyggeServiceSoapProxy proxy = new HyggeServiceSoapProxy();
+			HyggeServiceSoapProxy proxy = new HyggeServiceSoapProxy();
 		
-		String test;
+		/*String test;
 		try {
 			test = proxy.helloWorld();
 			System.out.println(test);		

@@ -21,6 +21,8 @@ public class HyggeFrame extends JFrame {
 	private JButton btnSearch; //knappen blir en instansvariabel
 	private JTable tabelData;
 	private JComboBox comboBox;
+	TableDataModel tableDataModel;
+	
 	
 	/**
 	 * Create the frame.
@@ -59,7 +61,8 @@ public class HyggeFrame extends JFrame {
 		contentPane.add(scrollPane);
 		
 		tabelData = new JTable();
-		TableDataModel tableDataModel = new TableDataModel();
+		
+		tableDataModel = new TableDataModel();
 		tabelData.setModel(tableDataModel);
 		
 		
@@ -70,4 +73,10 @@ public class HyggeFrame extends JFrame {
 	public JButton getBtnSearch() {
 		return btnSearch;
 	}
+
+	public TableDataModel getTableDataModel() {
+		return tableDataModel;
+	}
+	
+	
 }
