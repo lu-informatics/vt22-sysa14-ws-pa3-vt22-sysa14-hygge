@@ -19,11 +19,9 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Test", "Assignment3Client1\
 		IORedirection = Auto
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment3Cliente1", "Assignment3Cliente1\Assignment3Cliente1.csproj", "{2F9BEC76-9AF4-49B9-9C8C-3554F9D4C39C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3Cliente1", "Assignment3Cliente1\Assignment3Cliente1.csproj", "{2F9BEC76-9AF4-49B9-9C8C-3554F9D4C39C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client22", "Client22\Client22.csproj", "{E921AB03-D9D1-4573-84E6-1E8BCFD06340}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{228B82B0-A8D7-4475-9755-278733371F39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client22", "Client22\Client22.csproj", "{E921AB03-D9D1-4573-84E6-1E8BCFD06340}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +43,6 @@ Global
 		{E921AB03-D9D1-4573-84E6-1E8BCFD06340}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E921AB03-D9D1-4573-84E6-1E8BCFD06340}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E921AB03-D9D1-4573-84E6-1E8BCFD06340}.Release|Any CPU.Build.0 = Release|Any CPU
-		{228B82B0-A8D7-4475-9755-278733371F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{228B82B0-A8D7-4475-9755-278733371F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{228B82B0-A8D7-4475-9755-278733371F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{228B82B0-A8D7-4475-9755-278733371F39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

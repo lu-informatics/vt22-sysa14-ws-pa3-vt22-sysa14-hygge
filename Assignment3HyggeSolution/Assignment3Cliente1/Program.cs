@@ -17,7 +17,7 @@ namespace Assignment3Cliente1
 
 
 
-                System.Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
+                Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
                     + '\n' + "Person, Industry, Login, Intrest, Education or Relationship");
 
                 string response = Console.ReadLine();
