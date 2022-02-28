@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 
 
+
 namespace Assignment3Hygge { 
 
     public class DataAccessLayer { //TODO error handling
@@ -30,45 +31,6 @@ namespace Assignment3Hygge {
 
             public static DataSet ViewAll(Table table) => SendToDatabase($"SELECT * FROM {table}");
 
-            public static void GetYourTables()
-            {
-                string response = "";
-                while (response != "Exit")
-                {
-                    response = Console.ReadLine();
-                    switch (response.ToLower())
-                    {
-                        case "log":
-                            ViewAll(Table.Logins);
-                            break;
-
-                        case "pers":
-                            ViewAll(Table.Person);
-                            break;
-
-                        case "rela":
-                            ViewAll(Table.Relationship);
-                            break;
-
-                        case "int":
-                            ViewAll(Table.Interest);
-                            break;
-
-                        case "ind":
-                            ViewAll(Table.Industry);
-                            break;
-
-                        case "edu":
-                            ViewAll(Table.Education);
-                            break;
-
-                    }
-                    
-              
-
-
-                }
-            }
 
                 //CREATE TEMPLATE
                 public static void Create(Table table, ParamArgs value1, ParamArgs value2) 
@@ -165,7 +127,7 @@ namespace Assignment3Hygge {
 
         private static DataSet SendToDatabase(string sqlQuery, params ParamArgs[] args ) {
             try {
-                using (SqlConnection cnn = new SqlConnection("Data Source = SYST4DEV01; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ")) { //SQL Connection
+                using (SqlConnection cnn = new SqlConnection("Data Source = SYSA12; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ")) { //SQL Connection
                     cnn.Open();
                     using (SqlCommand command = new SqlCommand(sqlQuery, cnn)) // "using" keyword ensures disposal when objects are no longer used
                     using (SqlDataAdapter adapter = new SqlDataAdapter()) {
@@ -198,7 +160,8 @@ namespace Assignment3Hygge {
                     }
                 }
             }
-            catch (SqlException) { Console.WriteLine("error"); return null; } // error handling here
+            catch (SqlException ex) {
+                Console.WriteLine("error"); return null; } // error handling here
         }
     }
 }

@@ -83,14 +83,14 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     
     /// <remarks/>
     [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ViewAll", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-    public System.Data.DataSet ViewAll(Table table) {
+    public System.Data.DataSet ViewAll(string table) {
         object[] results = this.Invoke("ViewAll", new object[] {
                     table});
         return ((System.Data.DataSet)(results[0]));
     }
     
     /// <remarks/>
-    public System.IAsyncResult BeginViewAll(Table table, System.AsyncCallback callback, object asyncState) {
+    public System.IAsyncResult BeginViewAll(string table, System.AsyncCallback callback, object asyncState) {
         return this.BeginInvoke("ViewAll", new object[] {
                     table}, callback, asyncState);
     }
@@ -102,12 +102,12 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     }
     
     /// <remarks/>
-    public void ViewAllAsync(Table table) {
+    public void ViewAllAsync(string table) {
         this.ViewAllAsync(table, null);
     }
     
     /// <remarks/>
-    public void ViewAllAsync(Table table, object userState) {
+    public void ViewAllAsync(string table, object userState) {
         if ((this.ViewAllOperationCompleted == null)) {
             this.ViewAllOperationCompleted = new System.Threading.SendOrPostCallback(this.OnViewAllOperationCompleted);
         }
@@ -126,31 +126,6 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     public new void CancelAsync(object userState) {
         base.CancelAsync(userState);
     }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-public enum Table {
-    
-    /// <remarks/>
-    Logins,
-    
-    /// <remarks/>
-    Person,
-    
-    /// <remarks/>
-    Relationship,
-    
-    /// <remarks/>
-    Interest,
-    
-    /// <remarks/>
-    Industry,
-    
-    /// <remarks/>
-    Education,
 }
 
 /// <remarks/>

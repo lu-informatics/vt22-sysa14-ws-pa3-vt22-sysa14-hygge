@@ -5,5 +5,5 @@ wsdl.exe /out:HyggeService.cs http://localhost/Assignment3Client/HyggeService.as
 csc.exe /target:library /out:HyggeService.dll HyggeService.cs
 
 :: Compile Test.cs
-csc.exe /out:Test.exe /reference:HyggeService.dll Test.cs
+csc.exe /out:Program.exe /reference:HyggeService.dll Program.cs
 
