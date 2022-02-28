@@ -10,6 +10,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -29,9 +30,7 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     
     private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
     
-    private System.Threading.SendOrPostCallback MenyOperationCompleted;
-    
-    private System.Threading.SendOrPostCallback GetYourTablesOperationCompleted;
+    private System.Threading.SendOrPostCallback ViewAllOperationCompleted;
     
     /// <remarks/>
     public HyggeService() {
@@ -42,10 +41,7 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     public event HelloWorldCompletedEventHandler HelloWorldCompleted;
     
     /// <remarks/>
-    public event MenyCompletedEventHandler MenyCompleted;
-    
-    /// <remarks/>
-    public event GetYourTablesCompletedEventHandler GetYourTablesCompleted;
+    public event ViewAllCompletedEventHandler ViewAllCompleted;
     
     /// <remarks/>
     [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -86,79 +82,43 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     }
     
     /// <remarks/>
-    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Meny", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-    public string Meny() {
-        object[] results = this.Invoke("Meny", new object[0]);
-        return ((string)(results[0]));
+    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ViewAll", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+    public System.Data.DataSet ViewAll(Table table) {
+        object[] results = this.Invoke("ViewAll", new object[] {
+                    table});
+        return ((System.Data.DataSet)(results[0]));
     }
     
     /// <remarks/>
-    public System.IAsyncResult BeginMeny(System.AsyncCallback callback, object asyncState) {
-        return this.BeginInvoke("Meny", new object[0], callback, asyncState);
+    public System.IAsyncResult BeginViewAll(Table table, System.AsyncCallback callback, object asyncState) {
+        return this.BeginInvoke("ViewAll", new object[] {
+                    table}, callback, asyncState);
     }
     
     /// <remarks/>
-    public string EndMeny(System.IAsyncResult asyncResult) {
+    public System.Data.DataSet EndViewAll(System.IAsyncResult asyncResult) {
         object[] results = this.EndInvoke(asyncResult);
-        return ((string)(results[0]));
+        return ((System.Data.DataSet)(results[0]));
     }
     
     /// <remarks/>
-    public void MenyAsync() {
-        this.MenyAsync(null);
+    public void ViewAllAsync(Table table) {
+        this.ViewAllAsync(table, null);
     }
     
     /// <remarks/>
-    public void MenyAsync(object userState) {
-        if ((this.MenyOperationCompleted == null)) {
-            this.MenyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnMenyOperationCompleted);
+    public void ViewAllAsync(Table table, object userState) {
+        if ((this.ViewAllOperationCompleted == null)) {
+            this.ViewAllOperationCompleted = new System.Threading.SendOrPostCallback(this.OnViewAllOperationCompleted);
         }
-        this.InvokeAsync("Meny", new object[0], this.MenyOperationCompleted, userState);
+        this.InvokeAsync("ViewAll", new object[] {
+                    table}, this.ViewAllOperationCompleted, userState);
     }
     
-    private void OnMenyOperationCompleted(object arg) {
-        if ((this.MenyCompleted != null)) {
+    private void OnViewAllOperationCompleted(object arg) {
+        if ((this.ViewAllCompleted != null)) {
             System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-            this.MenyCompleted(this, new MenyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-        }
-    }
-    
-    /// <remarks/>
-    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetYourTables", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-    public void GetYourTables(string response) {
-        this.Invoke("GetYourTables", new object[] {
-                    response});
-    }
-    
-    /// <remarks/>
-    public System.IAsyncResult BeginGetYourTables(string response, System.AsyncCallback callback, object asyncState) {
-        return this.BeginInvoke("GetYourTables", new object[] {
-                    response}, callback, asyncState);
-    }
-    
-    /// <remarks/>
-    public void EndGetYourTables(System.IAsyncResult asyncResult) {
-        this.EndInvoke(asyncResult);
-    }
-    
-    /// <remarks/>
-    public void GetYourTablesAsync(string response) {
-        this.GetYourTablesAsync(response, null);
-    }
-    
-    /// <remarks/>
-    public void GetYourTablesAsync(string response, object userState) {
-        if ((this.GetYourTablesOperationCompleted == null)) {
-            this.GetYourTablesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetYourTablesOperationCompleted);
-        }
-        this.InvokeAsync("GetYourTables", new object[] {
-                    response}, this.GetYourTablesOperationCompleted, userState);
-    }
-    
-    private void OnGetYourTablesOperationCompleted(object arg) {
-        if ((this.GetYourTablesCompleted != null)) {
-            System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-            this.GetYourTablesCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            this.ViewAllCompleted(this, new ViewAllCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
         }
     }
     
@@ -166,6 +126,31 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     public new void CancelAsync(object userState) {
         base.CancelAsync(userState);
     }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+public enum Table {
+    
+    /// <remarks/>
+    Logins,
+    
+    /// <remarks/>
+    Person,
+    
+    /// <remarks/>
+    Relationship,
+    
+    /// <remarks/>
+    Interest,
+    
+    /// <remarks/>
+    Industry,
+    
+    /// <remarks/>
+    Education,
 }
 
 /// <remarks/>
@@ -196,30 +181,26 @@ public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncC
 
 /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
-public delegate void MenyCompletedEventHandler(object sender, MenyCompletedEventArgs e);
+public delegate void ViewAllCompletedEventHandler(object sender, ViewAllCompletedEventArgs e);
 
 /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-public partial class MenyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+public partial class ViewAllCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
     
     private object[] results;
     
-    internal MenyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    internal ViewAllCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState) {
         this.results = results;
     }
     
     /// <remarks/>
-    public string Result {
+    public System.Data.DataSet Result {
         get {
             this.RaiseExceptionIfNecessary();
-            return ((string)(this.results[0]));
+            return ((System.Data.DataSet)(this.results[0]));
         }
     }
 }
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
-public delegate void GetYourTablesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);

@@ -3,22 +3,27 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.IO;
 
 namespace Assignment3Cliente1
+
+    
 {
-    internal class Program
+    
+    public class Program
     {
         static void Main(string[] args)
         {
             
-            {
+            
                 HyggeService hyggeClient = new HyggeService();
 
 
 
-                System.Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
+               Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
                     + '\n' + "Person, Industry, Login, Intrest, Education or Relationship");
+
+            
 
                 string response = Console.ReadLine();
                 //DataSet ds = new DataSet(); //Ta bort!
@@ -63,5 +68,5 @@ namespace Assignment3Cliente1
            
             }
         }
-    }
+    
             
