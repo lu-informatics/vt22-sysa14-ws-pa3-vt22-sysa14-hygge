@@ -7,3 +7,5 @@ csc.exe /target:library /out:HyggeService.dll HyggeService.cs
 :: Compile Test.cs
 csc.exe /out:Program.exe /reference:HyggeService.dll Program.cs
 
+
+

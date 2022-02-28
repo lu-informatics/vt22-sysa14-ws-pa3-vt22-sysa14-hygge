@@ -28,22 +28,60 @@ namespace Assignment3Hygge
         {
             return "Hello World";
         }
+
         [WebMethod]
+
         public DataSet ViewAll(Table table)              //C# clienten kan hantera dataset via soap och ta emot, MEN JAVA fattar inte de, 
+
+        public DataSet ViewAll(string table)
+
         {
-            return DataAccessLayer.Utils.ViewAll(table);
+            switch (table) //flyttat från client till webbservice
+            {
+                case "Logins":
+                    return DataAccessLayer.Utils.ViewAll(Table.Logins);
+
+
+                case "Person":
+                    return DataAccessLayer.Utils.ViewAll(Table.Person);
+
+
+
+                case "Relationship":
+                    return DataAccessLayer.Utils.ViewAll(Table.Relationship);
+
+
 
         }
        
             
 
 
+                case "Intrests":
+                    return DataAccessLayer.Utils.ViewAll(Table.Interest);
+
+
+
+                case "Industry":
+                    return DataAccessLayer.Utils.ViewAll(Table.Industry);
+
+
+                case "Educations":
+                    return DataAccessLayer.Utils.ViewAll(Table.Education);
+
+
+            }
+            throw new Exception("The table was not found in the database!"); //Något exception? 
+     
 
         }
       
         
 
     }
+
+}
+
 
 
 

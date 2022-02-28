@@ -7,12 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HyggeService
+namespace ServiceReference1
 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HyggeService.HyggeServiceSoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.HyggeServiceSoap")]
     public interface HyggeServiceSoap
     {
         
@@ -25,20 +25,20 @@ namespace HyggeService
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ViewAll", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        HyggeService.ArrayOfXElement ViewAll(string table);
+        ServiceReference1.ArrayOfXElement ViewAll(string table);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ViewAll", ReplyAction="*")]
-        System.Threading.Tasks.Task<HyggeService.ArrayOfXElement> ViewAllAsync(string table);
+        System.Threading.Tasks.Task<ServiceReference1.ArrayOfXElement> ViewAllAsync(string table);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    public interface HyggeServiceSoapChannel : HyggeService.HyggeServiceSoap, System.ServiceModel.IClientChannel
+    public interface HyggeServiceSoapChannel : ServiceReference1.HyggeServiceSoap, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    public partial class HyggeServiceSoapClient : System.ServiceModel.ClientBase<HyggeService.HyggeServiceSoap>, HyggeService.HyggeServiceSoap
+    public partial class HyggeServiceSoapClient : System.ServiceModel.ClientBase<ServiceReference1.HyggeServiceSoap>, ServiceReference1.HyggeServiceSoap
     {
         
         /// <summary>
@@ -84,12 +84,12 @@ namespace HyggeService
             return base.Channel.HelloWorldAsync();
         }
         
-        public HyggeService.ArrayOfXElement ViewAll(string table)
+        public ServiceReference1.ArrayOfXElement ViewAll(string table)
         {
             return base.Channel.ViewAll(table);
         }
         
-        public System.Threading.Tasks.Task<HyggeService.ArrayOfXElement> ViewAllAsync(string table)
+        public System.Threading.Tasks.Task<ServiceReference1.ArrayOfXElement> ViewAllAsync(string table)
         {
             return base.Channel.ViewAllAsync(table);
         }

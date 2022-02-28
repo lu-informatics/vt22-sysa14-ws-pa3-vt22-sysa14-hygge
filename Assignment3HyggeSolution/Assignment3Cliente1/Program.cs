@@ -2,7 +2,6 @@
 
 using System;
 using System.Data;
-using System.Data.SqlClient;
 
 
 namespace Assignment3Cliente1
@@ -13,14 +12,17 @@ namespace Assignment3Cliente1
         static void Main(string[] args)
 
         {
+
             HyggeService.HyggeServiceSoapClient.EndpointConfiguration config = HyggeServiceSoapClient.EndpointConfiguration.HyggeServiceSoap;
             HyggeServiceSoapClient proxy = new HyggeServiceSoapClient(config);
+
 
             Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
                   + '\n' + "Person, Industry, Login, Intrest, Education or Relationship");
             string response = Console.ReadLine();
             Console.WriteLine(proxy.ViewAll());
             Console.WriteLine(proxy.response());
+
 
         }
     }
@@ -78,3 +80,40 @@ namespace Assignment3Cliente1
         
     
             
+
+            HyggeService hyggeClient = new HyggeService();
+
+
+
+            Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
+                + '\n' + "Person, Industry, Login, Intrest, Education or Relationship");
+
+            string response = Console.ReadLine();
+            DataSet ds = new DataSet();
+
+            var response1 = hyggeClient.ViewAll(response).Tables[0];
+            foreach (DataRow dataRow in response1.Rows)
+            {
+                foreach(DataColumn dataColumn in response1.Columns)
+                {
+                    Console.WriteLine(dataRow[dataColumn].ToString());
+
+                }
+                
+
+            }
+                 
+            
+
+
+
+
+        }
+
+    }
+
+}
+
+
+
+
