@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection;
-using System.Web;
 using System.Web.Services;
 using static Assignment3Hygge.DataAccessLayer;
 
@@ -30,15 +26,13 @@ namespace Assignment3Hygge
         }
 
         [WebMethod]
-
-        public DataSet ViewAll(Table table)              //C# clienten kan hantera dataset via soap och ta emot, MEN JAVA fattar inte de, 
-
         public DataSet ViewAll(string table)
+           
 
         {
-            switch (table) //flyttat från client till webbservice
+            switch (table)//flyttat från client till webbservice
             {
-                case "Logins":
+                case "Login":
                     return DataAccessLayer.Utils.ViewAll(Table.Logins);
 
 
@@ -51,32 +45,25 @@ namespace Assignment3Hygge
                     return DataAccessLayer.Utils.ViewAll(Table.Relationship);
 
 
-
-        }
-       
-            
-
-
-                case "Intrests":
+                case "Interest":
                     return DataAccessLayer.Utils.ViewAll(Table.Interest);
-
 
 
                 case "Industry":
                     return DataAccessLayer.Utils.ViewAll(Table.Industry);
 
 
-                case "Educations":
+                case "Education":
                     return DataAccessLayer.Utils.ViewAll(Table.Education);
 
 
             }
             throw new Exception("The table was not found in the database!"); //Något exception? 
-     
+
 
         }
-      
-        
+
+
 
     }
 
