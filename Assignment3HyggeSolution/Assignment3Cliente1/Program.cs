@@ -25,16 +25,16 @@ namespace Assignment3Cliente1
             var response1 = hyggeClient.ViewAll(response).Tables[0];
             foreach (DataRow dataRow in response1.Rows)
             {
-                foreach(DataColumn dataColumn in response1.Columns)
+                foreach (DataColumn dataColumn in response1.Columns)
                 {
                     Console.WriteLine(dataRow[dataColumn].ToString());
 
                 }
-                
+
 
             }
-                 
-            
+
+
 
 
 

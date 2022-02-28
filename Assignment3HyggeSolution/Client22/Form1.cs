@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 
 
-//Kanske ta bort
 
 namespace Client22
 {

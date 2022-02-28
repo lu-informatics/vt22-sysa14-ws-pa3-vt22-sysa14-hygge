@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 using static Assignment3Hygge.DataAccessLayer;
 
@@ -60,7 +56,7 @@ namespace Assignment3Hygge
 
             }
             throw new Exception("The table was not found in the database!"); //Något exception? 
-     
+
 
         }
 
