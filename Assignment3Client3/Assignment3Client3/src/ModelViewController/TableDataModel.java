@@ -1,5 +1,6 @@
 package ModelViewController;
 
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
@@ -17,7 +18,7 @@ public class TableDataModel extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return 5;
+		return 2;
 	}
 
 	@Override
@@ -28,8 +29,9 @@ public class TableDataModel extends AbstractTableModel {
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
+		Table tmpTable = tables.get(rowIndex);
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 }

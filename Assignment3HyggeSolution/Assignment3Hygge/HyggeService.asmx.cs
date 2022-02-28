@@ -29,7 +29,7 @@ namespace Assignment3Hygge
             return "Hello World";
         }
         [WebMethod]
-        public DataSet ViewAll(Table table)
+        public DataSet ViewAll(Table table)              //C# clienten kan hantera dataset via soap och ta emot, MEN JAVA fattar inte de, 
         {
             return DataAccessLayer.Utils.ViewAll(table);
 
