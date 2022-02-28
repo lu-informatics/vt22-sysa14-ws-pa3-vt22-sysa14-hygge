@@ -24,18 +24,7 @@ namespace Assignment3Hygge {
             Industry, 
             Education 
         }
-        public List<Table> GetTables()
-        {
-            List<Table> tables = new List<Table>();
-            using (SqlConnection cnn = new SqlConnection("Data Source = SYST4DEV01; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 "))
-            { //SQL Connection
-                cnn.Open();
-                using (SqlCommand command = new SqlCommand()) // "using" keyword ensures disposal when objects are no longer used
-                using (SqlDataAdapter adapter = new SqlDataAdapter())
-                {
-
-
-                }
+      
 
         public static class Utils {
             // These methods partially define the SQL query, leaving parameter fill for the SendToDatabes method.

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Web.Services;
 using static Assignment3Hygge.DataAccessLayer;
+using System.Linq;
+
 
 namespace Assignment3Hygge
 {
@@ -27,7 +29,7 @@ namespace Assignment3Hygge
 
         [WebMethod]
         public DataSet ViewAll(string table)
-           
+
 
         {
             switch (table)//flyttat från client till webbservice
@@ -60,14 +62,28 @@ namespace Assignment3Hygge
             }
             throw new Exception("The table was not found in the database!"); //Något exception? 
 
-
         }
 
 
+        [WebMethod]
+        public List<object[]> GetTableAsList(string tableName)
+        {
+            List<object[]> list = new List<object[]>();
 
+            DataSet dataSet = DataAccessLayer.Utils.ViewAll(Table.Education); //Loop eller switch-case där vi stringa response baserat på vad man väljer i java clienten tex om man väljer Person, Login osv
+            DataTable dataTable = dataSet.Tables[0];
+            foreach(DataRow row in dataTable.Rows)
+            {
+                var array = row.ItemArray;
+                list.Add(array);
+            }
+            return list;
+          
+        }
     }
-
 }
+
+
 
 
 
