@@ -25,7 +25,6 @@ namespace Assignment3Hygge {
             Education 
         }
       
-
         public static class Utils {
             // These methods partially define the SQL query, leaving parameter fill for the SendToDatabes method.
             // IMPORTANT: These methods requires ParamIDs to match parameter names in the database.

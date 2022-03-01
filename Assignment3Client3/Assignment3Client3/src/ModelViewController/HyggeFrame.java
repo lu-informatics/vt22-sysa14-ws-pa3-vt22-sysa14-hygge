@@ -18,15 +18,11 @@ import javax.swing.JScrollPane;
 public class HyggeFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnSearch; //knappen blir en instansvariabel
-	private JTable tabelData;
+	private JTable tableData;
 	private JComboBox comboBox;
-	TableDataModel tableDataModel;
-	
-	
-	/**
-	 * Create the frame.
-	 */
+
+	 
+	 
 	public HyggeFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 750, 600);
@@ -34,12 +30,7 @@ public class HyggeFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(new Color (220,238,255)); //set color 
-		
-		btnSearch = new JButton("Search");                //instanisera knappen
-	
-		btnSearch.setBounds(229, 171, 89, 23);
-		contentPane.add(btnSearch);
+		contentPane.setBackground(new Color (220,238,255));
 		
 		JLabel lblNewLabel = new JLabel("Please select a value :");
 		lblNewLabel.setBounds(53, 154, 150, 14);
@@ -60,23 +51,24 @@ public class HyggeFrame extends JFrame {
 		scrollPane.setBounds(49, 217, 595, 281);
 		contentPane.add(scrollPane);
 		
-		tabelData = new JTable();
-		
-		tableDataModel = new TableDataModel();
-		tabelData.setModel(tableDataModel);
+		tableData = new JTable();
+	
 		
 		
-		scrollPane.setViewportView(tabelData);
+		scrollPane.setViewportView(tableData);
 		this.setVisible(true);
 	}
 
-	public JButton getBtnSearch() {
-		return btnSearch;
-	}
+	
 
-	public TableDataModel getTableDataModel() {
-		return tableDataModel;
+	
+
+
+	public JComboBox getComboBox() {
+		return comboBox;
 	}
+	
 	
 	
 }
+

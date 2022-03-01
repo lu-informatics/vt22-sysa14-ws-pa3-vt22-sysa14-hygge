@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Web.Services;
 using static Assignment3Hygge.DataAccessLayer;
-using System.Linq;
 
 
 namespace Assignment3Hygge
@@ -69,19 +68,39 @@ namespace Assignment3Hygge
         public List<object[]> GetTableAsList(string tableName)
         {
             List<object[]> list = new List<object[]>();
+            DataSet dataSet = new DataSet();
 
-            DataSet dataSet = DataAccessLayer.Utils.ViewAll(Table.Education); //Loop eller switch-case där vi stringa response baserat på vad man väljer i java clienten tex om man väljer Person, Login osv
-            DataTable dataTable = dataSet.Tables[0];
-            foreach(DataRow row in dataTable.Rows)
+            switch (tableName)
             {
-                var array = row.ItemArray;
-                list.Add(array);
+                case "Person":
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.Person);
+                    break;
+                case "Login":
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.Relationship);
+                    break;
+                case "Education":
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.Education);
+                    break;
+                case "Industry":
+                    dataSet= DataAccessLayer.Utils.ViewAll(Table.Industry);
+                    break;
+                case "Interest":
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.Interest);
+                    break;
+
             }
-            return list;
-          
+
+                    DataTable dataTable = dataSet.Tables[0];
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        var array = row.ItemArray;
+                        list.Add(array);
+                    }
+                    return list;
+
+            }
         }
     }
-}
 
 
 

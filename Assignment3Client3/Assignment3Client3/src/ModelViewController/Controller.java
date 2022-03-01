@@ -1,9 +1,9 @@
 package ModelViewController;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 
+import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
 
 import org.tempuri.HyggeServiceSoapProxy;
@@ -21,28 +21,39 @@ public class Controller {            //styr GUI och anroppar inte SOAP-tjänster 
 		
 	}
 	public void populateTable() {
-		Table[] tables = null;
+		
+		
+		Object[] obj = null;
 		try {
-			tables = proxy.viewAll(null); //kan ej hämta ett DataSet från WS
+			obj = proxy.getTableAsList(null);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		hyggeFrame.getTableDataModel(tables);
+	//	hyggeFrame.getTableDataModel();
 		
 
 }
-	public void comboBoxSeach() {    //Måste kalla på en metod som returnerar rätt från databasen baserat på val i combobox
-		hyggeFrame.getBtnSearch().addActionListener(new ActionListener() { 
-			public void actionPerformed(ActionEvent e) {
-				
+	public void addTable () {
+		for (int i = 0; i < objects.length; i++) {
+			Objects[] obj = Objects[i];
+			DefaultTableModel tableModel = (DefaultTableModel table.getModel();
+			tableModel.addRow(obj);
+			
+			
+		}
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+			
+		
 	}
-	});
-	}
+
+	
 	
 	public void declareListerns () {
-		hyggeFrame.getBtnSearch().addActionListener(new ActionListener() {  //	hyggeFrame.getBtnSearch().add hämtar en referens till knappen, knappen ligger på heepen som ett obejkt
+		hyggeFrame.getComboBox().addActionListener(new ActionListener() {  //	hyggeFrame.getBtnSearch().add hämtar en referens till knappen, knappen ligger på heepen som ett obejkt
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Hej");
+				
+			//Anropa metoden som innehåller switch/case.	kalla på comboboxen och så kör vi fill table metodem, som den ska fill med. 
+				//GetTableAsList
 			}
 		});
 	}
