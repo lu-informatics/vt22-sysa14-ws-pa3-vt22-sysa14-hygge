@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
 
