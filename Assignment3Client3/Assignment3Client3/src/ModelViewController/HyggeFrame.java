@@ -56,10 +56,15 @@ public class HyggeFrame extends JFrame {
 		comboBox.addItem("EducationIndustry");
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(49, 217, 971, 267);
-		contentPane.add(scrollPane);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+	
+		
+		scrollPane.setToolTipText("");
+		scrollPane.setBounds(48, 217, 1000, 267);
+		contentPane.add(scrollPane);
+
 
 		tableData = new JTable();
 		jTableHeader = new JTableHeader();

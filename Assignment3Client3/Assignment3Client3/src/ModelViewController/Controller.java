@@ -46,9 +46,8 @@ public class Controller { // controls the GUI and call the SOAP via proxy, proxy
 					String response = hyggeFrame.getComboBox().getSelectedItem().toString(); // call response on the
 																								// GUI.
 					Object[][] tableArray = proxy.getTableAsList(response);
-					addTable(hyggeFrame.getTableData(), tableArray,personHeaders );
-					
-					
+					addTable(hyggeFrame.getTableData(), tableArray, allHeaders());
+
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -73,7 +72,7 @@ public class Controller { // controls the GUI and call the SOAP via proxy, proxy
 			TableColumnModel tableColumnModel = tHeader.getColumnModel(); // adding cast to DefaultTableModel.
 			TableColumn tc = tableColumnModel.getColumn(i); // adding cast to model.
 			tc.setHeaderValue(headers[i]);
-			tc.setMinWidth(150);
+			tc.setMinWidth(300);
 			tHeader.repaint();
 
 		}
@@ -84,6 +83,32 @@ public class Controller { // controls the GUI and call the SOAP via proxy, proxy
 			tableModel.addRow(obj); // add row.
 
 		}
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+	}
+
+	// tar emot response och returnerar en header.
+	public String[] allHeaders() {
+		String response1 = hyggeFrame.getComboBox().getSelectedItem().toString();
+
+		switch (response1) {  
+		case "Person":
+			return personHeaders;
+		case "Education":
+			return educationHeaders;
+		case "Industry":
+			return industryHeaders;
+		case "Interest":
+			return interestHeaders;
+		case "Login":
+			return loginsHeaders;
+		case "Relationship":
+			return relationshipHeaders;
+		case "EducationIndustry":
+			return educationIndustryHeaders;
+
+		}
+		return null;
 
 	}
 
