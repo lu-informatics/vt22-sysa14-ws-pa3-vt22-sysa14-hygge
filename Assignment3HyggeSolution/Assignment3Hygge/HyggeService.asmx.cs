@@ -57,6 +57,9 @@ namespace Assignment3Hygge
                 case "Education":
                     return DataAccessLayer.Utils.ViewAll(Table.Education);
 
+                case "EducationIndustry":
+                    return DataAccessLayer.Utils.ViewAll(Table.EducationIndustry);
+
 
             }
             throw new Exception("The table was not found in the database!"); //Något exception? 
@@ -65,42 +68,57 @@ namespace Assignment3Hygge
 
 
         [WebMethod]
-        public List<object[]> GetTableAsList(string tableName)
+        public List<object[]> GetTableAsList(string tableName) //C# can handle DataSet, but it's not optimal for Java. List of object[] and fill it with values generated from DataSet. 
+
         {
             List<object[]> list = new List<object[]>();
             DataSet dataSet = new DataSet();
+
+
 
             switch (tableName)
             {
                 case "Person":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Person);
                     break;
-                case "Login":
+                case "Relationship":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Relationship);
                     break;
                 case "Education":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Education);
                     break;
                 case "Industry":
-                    dataSet= DataAccessLayer.Utils.ViewAll(Table.Industry);
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.Industry);
                     break;
                 case "Interest":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Interest);
                     break;
+                case "Login":
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.Logins);
+                    break;
+                case "EducationIndustry":
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.EducationIndustry);
+                    break;
+
 
             }
 
-                    DataTable dataTable = dataSet.Tables[0];
-                    foreach (DataRow row in dataTable.Rows)
-                    {
-                        var array = row.ItemArray;
-                        list.Add(array);
-                    }
-                    return list;
 
+
+            DataTable dataTable = dataSet.Tables[0]; //a datatable represents a single table in the database.  
+            foreach (DataRow row in dataTable.Rows) //Foreach row in the chosen tables row, we set the row to an array, and add the array to the list and return the list. 
+            {
+                var array = row.ItemArray;
+                list.Add(array);
             }
+            return list; //when we make calls in Java, we will recieve the list of object[] representing our tables in the database. 
+
         }
     }
+
+      
+}
+   
 
 
 

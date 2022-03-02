@@ -32,6 +32,8 @@ namespace Client22
             comboBoxValue.Items.Add("Interest");
             comboBoxValue.Items.Add("Education");
             comboBoxValue.Items.Add("Industry");
+            comboBoxValue.Items.Add("EducationIndustry");
+
         }
 
         private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,6 +68,9 @@ namespace Client22
 
                 case "Education":
                     ds = proxy.ViewAll("Education");
+                    break;
+                case "EducationIndustry":
+                    ds = proxy.ViewAll("EducationIndustry");
                     break;
 
             }

@@ -1,4 +1,4 @@
-﻿
+﻿//TA BORT DENNA CLASS LOKALT? MEN ÄNDÅ HA KVAR I FILVÄGEN!!???
 
 using System;
 using System.Data;
@@ -18,7 +18,7 @@ namespace Assignment3Cliente1
 
 
             Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
-                + '\n' + "Person, Industry, Login, Intrest, Education or Relationship");
+                + '\n' + "Person, Industry, Login, Intrest, Education, Relationship or EducationIndustry");
 
             string response = Console.ReadLine();
             DataSet ds = new DataSet();
@@ -34,7 +34,7 @@ namespace Assignment3Cliente1
             }
 
 
-           
+
         }
 
     }

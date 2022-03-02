@@ -22,7 +22,8 @@ namespace Assignment3Hygge {
             Relationship, 
             Interest, 
             Industry, 
-            Education 
+            Education,
+            EducationIndustry
         }
       
         public static class Utils {
