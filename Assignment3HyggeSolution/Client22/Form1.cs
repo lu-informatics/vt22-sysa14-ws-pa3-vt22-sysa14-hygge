@@ -26,11 +26,13 @@ namespace Client22
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBoxValue.Items.Add("Person");
-            comboBoxValue.Items.Add("Logins");
+            comboBoxValue.Items.Add("Login");
             comboBoxValue.Items.Add("Relationship");
-            comboBoxValue.Items.Add("Intrest");
+            comboBoxValue.Items.Add("Interest");
             comboBoxValue.Items.Add("Education");
             comboBoxValue.Items.Add("Industry");
+            comboBoxValue.Items.Add("EducationIndustry");
+
         }
 
         private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,8 +45,8 @@ namespace Client22
 
             switch (cb.Text)
             {
-                case "Logins":
-                    ds = proxy.ViewAll("Logins");
+                case "Login":
+                    ds = proxy.ViewAll("Login");
                     break;
 
                 case "Person":
@@ -55,7 +57,7 @@ namespace Client22
                     ds = proxy.ViewAll("Relationship");
                     break;
 
-                case "Intrest":
+                case "Interest":
                     ds = proxy.ViewAll("Interest");
                     break;
 
@@ -65,6 +67,9 @@ namespace Client22
 
                 case "Education":
                     ds = proxy.ViewAll("Education");
+                    break;
+                case "EducationIndustry":
+                    ds = proxy.ViewAll("EducationIndustry");
                     break;
 
             }

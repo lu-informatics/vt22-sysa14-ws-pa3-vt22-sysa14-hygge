@@ -50,10 +50,16 @@ public class HyggeServiceSoapProxy implements org.tempuri.HyggeServiceSoap {
     return hyggeServiceSoap.helloWorld();
   }
   
-  public org.tempuri.ViewAllResponseViewAllResult viewAll(org.tempuri.Table table) throws java.rmi.RemoteException{
+  public org.tempuri.ViewAllResponseViewAllResult viewAll(java.lang.String table) throws java.rmi.RemoteException{
     if (hyggeServiceSoap == null)
       _initHyggeServiceSoapProxy();
     return hyggeServiceSoap.viewAll(table);
+  }
+  
+  public java.lang.Object[][] getTableAsList(java.lang.String tableName) throws java.rmi.RemoteException{
+    if (hyggeServiceSoap == null)
+      _initHyggeServiceSoapProxy();
+    return hyggeServiceSoap.getTableAsList(tableName);
   }
   
   
