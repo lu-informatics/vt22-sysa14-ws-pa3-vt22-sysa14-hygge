@@ -23,7 +23,8 @@ namespace Assignment3Hygge {
             Interest, 
             Industry, 
             Education,
-            EducationIndustry
+            EducationIndustry,
+            PersonInterest
         }
       
         public static class Utils {
@@ -54,7 +55,7 @@ namespace Assignment3Hygge {
             public static void CreateLogin(string email, string password) => Utils.Create(Table.Logins, new ParamArgs("@email", email), new ParamArgs("@pword", password));
             //Update
             public static void UpdateLogin(string email, string newPassword) => Utils.Update(Table.Logins,new ParamArgs("@email",email),new ParamArgs("@pword",newPassword));
-            //Read
+            //Reads
             public static DataSet ReadLogin(string email) => Utils.Read(Table.Logins, new ParamArgs("@email", email));
             //Delete
             public static void DeleteLogin(string email) => Utils.Delete(Table.Logins,new ParamArgs("@email",email));

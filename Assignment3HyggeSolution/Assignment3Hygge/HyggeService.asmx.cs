@@ -59,7 +59,9 @@ namespace Assignment3Hygge
 
                 case "EducationIndustry":
                     return DataAccessLayer.Utils.ViewAll(Table.EducationIndustry);
-
+                case "PersonInterest":
+                    return DataAccessLayer.Utils.ViewAll(Table.PersonInterest);
+                    
 
             }
             throw new Exception("The table was not found in the database!"); //Något exception? 
@@ -99,6 +101,11 @@ namespace Assignment3Hygge
                 case "EducationIndustry":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.EducationIndustry);
                     break;
+
+                case "PersonInterest":
+                    dataSet = DataAccessLayer.Utils.ViewAll(Table.PersonInterest);
+                    break;
+
 
 
             }

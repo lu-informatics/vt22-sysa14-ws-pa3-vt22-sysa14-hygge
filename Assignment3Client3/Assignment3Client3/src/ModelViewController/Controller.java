@@ -27,6 +27,7 @@ public class Controller { // controls the GUI and call the SOAP via proxy, proxy
 	private String[] loginsHeaders = new String[] { "pword", "email" };
 	private String[] relationshipHeaders = new String[] { "relationshipType", "levelOfCommitment" };
 	private String[] educationIndustryHeaders = new String[] { "industryName", "educationName" };
+	private String[] personInterestHeaders = new String[]  { "personID", "category" };
 
 	private HyggeFrame hyggeFrame;
 
@@ -106,6 +107,8 @@ public class Controller { // controls the GUI and call the SOAP via proxy, proxy
 			return relationshipHeaders;
 		case "EducationIndustry":
 			return educationIndustryHeaders;
+		case "PersonInterest"
+			return personInterestHeaders;
 
 		}
 		return null;

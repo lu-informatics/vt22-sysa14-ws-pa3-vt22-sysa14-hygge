@@ -32,6 +32,7 @@ namespace Client22
             comboBoxValue.Items.Add("Education");
             comboBoxValue.Items.Add("Industry");
             comboBoxValue.Items.Add("EducationIndustry");
+            comboBoxValue.Items.Add("PersonInterest");
 
         }
 
@@ -70,6 +71,9 @@ namespace Client22
                     break;
                 case "EducationIndustry":
                     ds = proxy.ViewAll("EducationIndustry");
+                    break;
+                case "PersonInterest":
+                    ds = proxy.ViewAll("PersonInterest");
                     break;
 
             }

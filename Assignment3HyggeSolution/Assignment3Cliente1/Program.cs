@@ -18,7 +18,7 @@ namespace Assignment3Cliente1
 
 
             Console.WriteLine("---------Meny-------" + '\n' + "-----Please Enter a One Of Following ------"
-                + '\n' + "Person, Industry, Login, Intrest, Education, Relationship or EducationIndustry");
+                + '\n' + "Person, Industry, Login, Intrest, Education, Relationship, PersonInterest or EducationIndustry");
 
             string response = Console.ReadLine();
             DataSet ds = new DataSet();
