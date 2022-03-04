@@ -31,7 +31,7 @@ namespace Assignment3Hygge
 
 
         {
-            switch (table)//flyttat från client till webbservice
+            switch (table)
             {
                 case "Login":
                     return DataAccessLayer.Utils.ViewAll(Table.Logins);
@@ -59,9 +59,10 @@ namespace Assignment3Hygge
 
                 case "EducationIndustry":
                     return DataAccessLayer.Utils.ViewAll(Table.EducationIndustry);
+
                 case "PersonInterest":
                     return DataAccessLayer.Utils.ViewAll(Table.PersonInterest);
-                    
+
 
             }
             throw new Exception("The table was not found in the database!"); //Något exception? 
@@ -88,7 +89,7 @@ namespace Assignment3Hygge
                     break;
                 case "Education":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Education);
-                    break;
+                    break;3
                 case "Industry":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Industry);
                     break;
@@ -123,9 +124,9 @@ namespace Assignment3Hygge
         }
     }
 
-      
+
 }
-   
+
 
 
 

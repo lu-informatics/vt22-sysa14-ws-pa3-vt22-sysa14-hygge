@@ -129,7 +129,7 @@ namespace Assignment3Hygge {
 
         private static DataSet SendToDatabase(string sqlQuery, params ParamArgs[] args ) {
             try {
-                using (SqlConnection cnn = new SqlConnection("Data Source = SYST4DEV01; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ")) { //SQL Connection
+                using (SqlConnection cnn = new SqlConnection("Data Source = SYSA12; Initial Catalog = Hygge; User ID=hygge ; Password =hej123 ")) { //SQL Connection
                     cnn.Open();
                     using (SqlCommand command = new SqlCommand(sqlQuery, cnn)) // "using" keyword ensures disposal when objects are no longer used
                     using (SqlDataAdapter adapter = new SqlDataAdapter()) {
