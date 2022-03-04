@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 
 
+
 namespace Assignment3Hygge { 
 
     public class DataAccessLayer { //TODO error handling
@@ -21,54 +22,16 @@ namespace Assignment3Hygge {
             Relationship, 
             Interest, 
             Industry, 
-            Education 
+            Education,
+            EducationIndustry
         }
-
+      
         public static class Utils {
             // These methods partially define the SQL query, leaving parameter fill for the SendToDatabes method.
             // IMPORTANT: These methods requires ParamIDs to match parameter names in the database.
 
             public static DataSet ViewAll(Table table) => SendToDatabase($"SELECT * FROM {table}");
 
-            public static void GetYourTables()
-            {
-                string response = "";
-                while (response != "Exit")
-                {
-                    response = Console.ReadLine();
-                    switch (response.ToLower())
-                    {
-                        case "log":
-                            ViewAll(Table.Logins);
-                            break;
-
-                        case "pers":
-                            ViewAll(Table.Person);
-                            break;
-
-                        case "rela":
-                            ViewAll(Table.Relationship);
-                            break;
-
-                        case "int":
-                            ViewAll(Table.Interest);
-                            break;
-
-                        case "ind":
-                            ViewAll(Table.Industry);
-                            break;
-
-                        case "edu":
-                            ViewAll(Table.Education);
-                            break;
-
-                    }
-                    
-              
-
-
-                }
-            }
 
                 //CREATE TEMPLATE
                 public static void Create(Table table, ParamArgs value1, ParamArgs value2) 
@@ -198,7 +161,8 @@ namespace Assignment3Hygge {
                     }
                 }
             }
-            catch (SqlException) { Console.WriteLine("error"); return null; } // error handling here
+            catch (SqlException ex) {
+                Console.WriteLine("error"); return null; } // error handling here
         }
     }
 }

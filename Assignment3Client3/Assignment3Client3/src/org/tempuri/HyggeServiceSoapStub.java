@@ -16,7 +16,7 @@ public class HyggeServiceSoapStub extends org.apache.axis.client.Stub implements
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[2];
+        _operations = new org.apache.axis.description.OperationDesc[3];
         _initOperationDesc1();
     }
 
@@ -34,7 +34,8 @@ public class HyggeServiceSoapStub extends org.apache.axis.client.Stub implements
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("ViewAll");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://tempuri.org/", "table"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://tempuri.org/", "Table"), org.tempuri.Table.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://tempuri.org/", "table"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://tempuri.org/", ">>ViewAllResponse>ViewAllResult"));
         oper.setReturnClass(org.tempuri.ViewAllResponseViewAllResult.class);
@@ -42,6 +43,20 @@ public class HyggeServiceSoapStub extends org.apache.axis.client.Stub implements
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[1] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("GetTableAsList");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://tempuri.org/", "tableName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://tempuri.org/", "ArrayOfArrayOfAnyType"));
+        oper.setReturnClass(java.lang.Object[][].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://tempuri.org/", "GetTableAsListResult"));
+        param = oper.getReturnParamDesc();
+        param.setItemQName(new javax.xml.namespace.QName("http://tempuri.org/", "ArrayOfAnyType"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[2] = oper;
 
     }
 
@@ -81,12 +96,65 @@ public class HyggeServiceSoapStub extends org.apache.axis.client.Stub implements
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://tempuri.org/", "Table");
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", ">GetTableAsList");
             cachedSerQNames.add(qName);
-            cls = org.tempuri.Table.class;
+            cls = org.tempuri.GetTableAsList.class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(enumsf);
-            cachedDeserFactories.add(enumdf);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", ">GetTableAsListResponse");
+            cachedSerQNames.add(qName);
+            cls = org.tempuri.GetTableAsListResponse.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", ">HelloWorld");
+            cachedSerQNames.add(qName);
+            cls = org.tempuri.HelloWorld.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", ">HelloWorldResponse");
+            cachedSerQNames.add(qName);
+            cls = org.tempuri.HelloWorldResponse.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", ">ViewAll");
+            cachedSerQNames.add(qName);
+            cls = org.tempuri.ViewAll.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", ">ViewAllResponse");
+            cachedSerQNames.add(qName);
+            cls = org.tempuri.ViewAllResponse.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", "ArrayOfAnyType");
+            cachedSerQNames.add(qName);
+            cls = java.lang.Object[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType");
+            qName2 = new javax.xml.namespace.QName("http://tempuri.org/", "anyType");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", "ArrayOfArrayOfAnyType");
+            cachedSerQNames.add(qName);
+            cls = java.lang.Object[][].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://tempuri.org/", "ArrayOfAnyType");
+            qName2 = new javax.xml.namespace.QName("http://tempuri.org/", "ArrayOfAnyType");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
     }
 
@@ -188,7 +256,7 @@ public class HyggeServiceSoapStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public org.tempuri.ViewAllResponseViewAllResult viewAll(org.tempuri.Table table) throws java.rmi.RemoteException {
+    public org.tempuri.ViewAllResponseViewAllResult viewAll(java.lang.String table) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -215,6 +283,40 @@ public class HyggeServiceSoapStub extends org.apache.axis.client.Stub implements
                 return (org.tempuri.ViewAllResponseViewAllResult) _resp;
             } catch (java.lang.Exception _exception) {
                 return (org.tempuri.ViewAllResponseViewAllResult) org.apache.axis.utils.JavaUtils.convert(_resp, org.tempuri.ViewAllResponseViewAllResult.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.Object[][] getTableAsList(java.lang.String tableName) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[2]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("http://tempuri.org/GetTableAsList");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://tempuri.org/", "GetTableAsList"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {tableName});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.Object[][]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.Object[][]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object[][].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
