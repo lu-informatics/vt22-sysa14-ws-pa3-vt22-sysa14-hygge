@@ -26,11 +26,14 @@ using System.Xml.Serialization;
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Web.Services.WebServiceBindingAttribute(Name="HyggeServiceSoap", Namespace="http://tempuri.org/")]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(object[][]))]
 public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClientProtocol {
     
     private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
     
     private System.Threading.SendOrPostCallback ViewAllOperationCompleted;
+    
+    private System.Threading.SendOrPostCallback GetTableAsListOperationCompleted;
     
     /// <remarks/>
     public HyggeService() {
@@ -42,6 +45,9 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     
     /// <remarks/>
     public event ViewAllCompletedEventHandler ViewAllCompleted;
+    
+    /// <remarks/>
+    public event GetTableAsListCompletedEventHandler GetTableAsListCompleted;
     
     /// <remarks/>
     [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -83,14 +89,14 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     
     /// <remarks/>
     [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ViewAll", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-    public System.Data.DataSet ViewAll(Table table) {
+    public System.Data.DataSet ViewAll(string table) {
         object[] results = this.Invoke("ViewAll", new object[] {
                     table});
         return ((System.Data.DataSet)(results[0]));
     }
     
     /// <remarks/>
-    public System.IAsyncResult BeginViewAll(Table table, System.AsyncCallback callback, object asyncState) {
+    public System.IAsyncResult BeginViewAll(string table, System.AsyncCallback callback, object asyncState) {
         return this.BeginInvoke("ViewAll", new object[] {
                     table}, callback, asyncState);
     }
@@ -102,12 +108,12 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     }
     
     /// <remarks/>
-    public void ViewAllAsync(Table table) {
+    public void ViewAllAsync(string table) {
         this.ViewAllAsync(table, null);
     }
     
     /// <remarks/>
-    public void ViewAllAsync(Table table, object userState) {
+    public void ViewAllAsync(string table, object userState) {
         if ((this.ViewAllOperationCompleted == null)) {
             this.ViewAllOperationCompleted = new System.Threading.SendOrPostCallback(this.OnViewAllOperationCompleted);
         }
@@ -123,34 +129,52 @@ public partial class HyggeService : System.Web.Services.Protocols.SoapHttpClient
     }
     
     /// <remarks/>
+    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetTableAsList", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+    [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfAnyType")]
+    [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
+    public object[][] GetTableAsList(string tableName) {
+        object[] results = this.Invoke("GetTableAsList", new object[] {
+                    tableName});
+        return ((object[][])(results[0]));
+    }
+    
+    /// <remarks/>
+    public System.IAsyncResult BeginGetTableAsList(string tableName, System.AsyncCallback callback, object asyncState) {
+        return this.BeginInvoke("GetTableAsList", new object[] {
+                    tableName}, callback, asyncState);
+    }
+    
+    /// <remarks/>
+    public object[][] EndGetTableAsList(System.IAsyncResult asyncResult) {
+        object[] results = this.EndInvoke(asyncResult);
+        return ((object[][])(results[0]));
+    }
+    
+    /// <remarks/>
+    public void GetTableAsListAsync(string tableName) {
+        this.GetTableAsListAsync(tableName, null);
+    }
+    
+    /// <remarks/>
+    public void GetTableAsListAsync(string tableName, object userState) {
+        if ((this.GetTableAsListOperationCompleted == null)) {
+            this.GetTableAsListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetTableAsListOperationCompleted);
+        }
+        this.InvokeAsync("GetTableAsList", new object[] {
+                    tableName}, this.GetTableAsListOperationCompleted, userState);
+    }
+    
+    private void OnGetTableAsListOperationCompleted(object arg) {
+        if ((this.GetTableAsListCompleted != null)) {
+            System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+            this.GetTableAsListCompleted(this, new GetTableAsListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+        }
+    }
+    
+    /// <remarks/>
     public new void CancelAsync(object userState) {
         base.CancelAsync(userState);
     }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-public enum Table {
-    
-    /// <remarks/>
-    Logins,
-    
-    /// <remarks/>
-    Person,
-    
-    /// <remarks/>
-    Relationship,
-    
-    /// <remarks/>
-    Interest,
-    
-    /// <remarks/>
-    Industry,
-    
-    /// <remarks/>
-    Education,
 }
 
 /// <remarks/>
@@ -201,6 +225,32 @@ public partial class ViewAllCompletedEventArgs : System.ComponentModel.AsyncComp
         get {
             this.RaiseExceptionIfNecessary();
             return ((System.Data.DataSet)(this.results[0]));
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
+public delegate void GetTableAsListCompletedEventHandler(object sender, GetTableAsListCompletedEventArgs e);
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+public partial class GetTableAsListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    
+    private object[] results;
+    
+    internal GetTableAsListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState) {
+        this.results = results;
+    }
+    
+    /// <remarks/>
+    public object[][] Result {
+        get {
+            this.RaiseExceptionIfNecessary();
+            return ((object[][])(this.results[0]));
         }
     }
 }

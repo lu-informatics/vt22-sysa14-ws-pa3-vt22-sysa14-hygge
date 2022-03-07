@@ -41,7 +41,7 @@ public class HyggeFrame extends JFrame {
 		lblNewLabel.setBounds(53, 154, 150, 14);
 		contentPane.add(lblNewLabel);
 
-		comboBox = snew JComboBox();
+		comboBox = new JComboBox();
 
 		comboBox.setBounds(53, 171, 150, 22);
 		contentPane.add(comboBox);
@@ -54,7 +54,7 @@ public class HyggeFrame extends JFrame {
 		comboBox.addItem("Interest");
 		comboBox.addItem("Relationship");
 		comboBox.addItem("EducationIndustry");
-		comboBox.addItem("PersonInterest")
+		comboBox.addItem("PersonInterest");
 
 		JScrollPane scrollPane = new JScrollPane();
 		

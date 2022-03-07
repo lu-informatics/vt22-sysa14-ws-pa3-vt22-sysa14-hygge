@@ -107,7 +107,7 @@ public class Controller { // controls the GUI and call the SOAP via proxy, proxy
 			return relationshipHeaders;
 		case "EducationIndustry":
 			return educationIndustryHeaders;
-		case "PersonInterest"
+		case "PersonInterest":
 			return personInterestHeaders;
 
 		}
