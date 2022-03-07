@@ -89,7 +89,7 @@ namespace Assignment3Hygge
                     break;
                 case "Education":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Education);
-                    break;3
+                    break;
                 case "Industry":
                     dataSet = DataAccessLayer.Utils.ViewAll(Table.Industry);
                     break;
